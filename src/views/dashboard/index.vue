@@ -1,6 +1,9 @@
 <template>
   <div class="dashboard-container">
-    <div class="dashboard-text">name: {{ name }}</div>
+    <div class="dashboard-text">&nbsp; Welcome! {{ name }}</div>
+    <div class="">
+      <p />
+    </div>
   </div>
 </template>
 
@@ -25,6 +28,8 @@ export default {
   &-text {
     font-size: 30px;
     line-height: 46px;
+    background: #67C23A;
+    color: #fff;
   }
 }
 </style>
