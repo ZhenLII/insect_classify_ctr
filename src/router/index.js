@@ -71,6 +71,12 @@ export const constantRoutes = [
         name: 'insectManagement-order',
         component: () => import('@/views/insectManagement/insectOrder'),
         meta: { title: '信息修改请求', icon: 'nested' }
+      },
+      {
+        path: '/insectManagement/insects/edit',
+        name: 'insectManagement-insect-edit',
+        component: () => import('@/views/insectManagement/editInsect'),
+        hidden: true
       }
     ]
   },
