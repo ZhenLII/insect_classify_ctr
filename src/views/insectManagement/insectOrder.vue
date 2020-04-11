@@ -105,6 +105,24 @@
           />
           <el-table-column
             align="center"
+            prop="creator"
+            label="创建人"
+            width="200"
+          />
+          <el-table-column
+            align="center"
+            prop="createTimeStr"
+            label="创建时间"
+            width="200"
+          />
+          <el-table-column
+            align="center"
+            prop="supportCount"
+            label="点赞数"
+
+          />
+          <el-table-column
+            align="center"
             label="操作"
             fixed="right"
             width="150"
@@ -112,7 +130,7 @@
             <template slot-scope="scope">
               <template v-if="scope.row.state === undoState.code">
                 <el-link type="primary" @click="confirmAproval(scope.row.orderId,'AGREE')">同意</el-link>
-                <el-link type="primary" @click="confirmAproval(scope.row.orderId,'REJECT')">驳回</el-link>
+                <el-link type="danger" @click="confirmAproval(scope.row.orderId,'REJECT')">驳回</el-link>
               </template>
               <template v-else><svg-icon icon-class="no-option" /></template>
             </template>

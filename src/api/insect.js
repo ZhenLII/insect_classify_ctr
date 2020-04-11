@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function getInsectList(params) {
   return request({
-    url: '/insect/list-web',
+    url: '/insect-info/list-web',
     method: 'get',
     params
   })
@@ -10,7 +10,7 @@ export function getInsectList(params) {
 
 export function addInsect(params) {
   return request({
-    url: '/insect/insect-add',
+    url: '/insect-info/insect-add',
     headers: {
       'Content-Type': 'multipart/form-data' // 文件上传时的格式
     },
@@ -21,7 +21,7 @@ export function addInsect(params) {
 
 export function getInsectById(params) {
   return request({
-    url: '/insect/insect-web',
+    url: '/insect-info/insect-web',
     method: 'get',
     params
   })
@@ -29,7 +29,7 @@ export function getInsectById(params) {
 
 export function deleteInsectPic(params) {
   return request({
-    url: '/insect/insect-pic-delete',
+    url: '/insect-info/insect-pic-delete',
     method: 'get',
     params
   })
@@ -37,7 +37,7 @@ export function deleteInsectPic(params) {
 
 export function updateInsect(params) {
   return request({
-    url: '/insect/insect-update',
+    url: '/insect-info/insect-update',
     method: 'get',
     params
   })
