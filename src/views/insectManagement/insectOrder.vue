@@ -14,9 +14,20 @@
       <el-col :span="6" :offset="2">
         <el-input
           v-model="query"
+          placeholder="关键字搜索"
           @change="getOrderTable"
           @input="getOrderTable"
         />
+      </el-col>
+      <el-col :span="4" :offset="1">
+        <el-input-number
+          v-model="supportCount"
+          :min="0"
+          label="点赞数筛选"
+          @change="getOrderTable"
+          @input="getOrderTable"
+        />
+
       </el-col>
       <!-- <el-col :span="4" :offset="1">
         <el-button type="primary">添加昆虫</el-button>
@@ -119,7 +130,6 @@
             align="center"
             prop="supportCount"
             label="点赞数"
-
           />
           <el-table-column
             align="center"
@@ -164,7 +174,8 @@ export default {
       query: '',
       total: 1,
       currentPage: 1,
-      pageSize: 10
+      pageSize: 10,
+      supportCount: 10
     }
   },
   created: function() {
@@ -176,7 +187,7 @@ export default {
       return row[property] === value
     },
     getOrderTable: function() {
-      getInsectOrderList({ query: this.query, pageSize: this.pageSize, currentPage: this.currentPage }).then(res => {
+      getInsectOrderList({ query: this.query, pageSize: this.pageSize, currentPage: this.currentPage, supportCount: this.supportCount }).then(res => {
         if (res.code === 20000) {
           this.orders = res.data
           this.total = res.total

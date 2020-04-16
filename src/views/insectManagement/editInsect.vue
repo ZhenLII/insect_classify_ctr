@@ -202,7 +202,9 @@ export default {
         getInsectById({ insectId: this.form.insectId }).then(res => {
           if (res.code === 20000) {
             this.form = res.data
-            this.pic = res.data.pic.split(';')
+            if (res.data.pic !== '') {
+              this.pic = res.data.pic.split(';')
+            }
           }
         })
       }
