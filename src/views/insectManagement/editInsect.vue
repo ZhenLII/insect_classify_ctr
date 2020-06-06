@@ -149,6 +149,7 @@
 </template>
 <script>
 import axios from 'axios'
+import { getToken } from '@/utils/auth'
 import { getInsectById, deleteInsectPic, updateInsect } from '@/api/insect'
 export default {
   data() {
@@ -220,7 +221,7 @@ export default {
       this.fileList = fileList
     },
     actionUrl() {
-      return '/insect/insect-add'
+      return '/insect-info/insect-add'
     },
     header() {
       return { 'Content-Type': 'multipart/form-data' }
@@ -247,7 +248,7 @@ export default {
               formdata.append('files', file.raw)
               console.log(file)
             })
-            axios.post('insect/insect-add', formdata).then(res => {
+            axios.post('insect-info/insect-add', formdata,  { headers: { 'token': getToken() }}).then(res => {
               if (res.data.code === 20000) {
                 this.$message({
                   message: '新增成功',
@@ -325,7 +326,7 @@ export default {
         })
         return
       }
-      axios.post('/insect/insect-pic-update', updatePicFormData).then(res => {
+      axios.post('/insect-info/insect-pic-update', updatePicFormData, { headers: { 'token': getToken() }}).then(res => {
         console.log(res)
         if (res.data.code === 20000) {
           this.$message({
